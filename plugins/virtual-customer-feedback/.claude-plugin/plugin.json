@@ -1,0 +1,21 @@
+{
+  "name": "virtual-customer-feedback",
+  "version": "1.0.0",
+  "description": "합성(가상) 페르소나 카드로 제작물에 대한 반응 논점을 만들고, 그것을 실제 고객에게 물어볼 검증 질문으로 바꾼다. 고객의 답을 아는 도구가 아니라, 무엇을 물어야 할지 정하는 도구다.",
+  "author": {
+    "name": "Ant (hapum0225)",
+    "url": "https://github.com/hapum0225"
+  },
+  "homepage": "https://github.com/hapum0225/virtual-customer-feedback",
+  "repository": "https://github.com/hapum0225/virtual-customer-feedback",
+  "license": "MIT AND CC-BY-4.0",
+  "keywords": [
+    "customer-research",
+    "synthetic-personas",
+    "product-validation",
+    "user-interview",
+    "hypothesis-testing",
+    "korean",
+    "pm"
+  ]
+}

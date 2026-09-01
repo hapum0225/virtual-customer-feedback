@@ -1,0 +1,16 @@
+# 스킬 실행 중 사용자 프로젝트에 생기는 기록 — 이 저장소에 들어올 일 없음(안전장치)
+log.md
+vcf-result*.md
+
+# 파일럿 실행 로그 중 개인정보·절대경로가 담긴 원본 (정제본만 커밋)
+evals/results/*.raw.md
+evals/results/*.local.*
+
+# OS·에디터 부산물
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/

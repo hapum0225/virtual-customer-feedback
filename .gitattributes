@@ -1,0 +1,8 @@
+# 크로스플랫폼 일관성: 텍스트 파일은 저장소에 LF로 정규화
+# (페르소나 팩의 SHA-256이 LF 기준이므로 이 설정이 깨지면 해시 대조가 실패한다)
+* text=auto eol=lf
+
+# 바이너리로 취급 (해당 시)
+*.png binary
+*.jpg binary
+*.gif binary

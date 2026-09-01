@@ -1,0 +1,17 @@
+{
+  "name": "virtual-customer-feedback",
+  "owner": {
+    "name": "hapum0225",
+    "url": "https://github.com/hapum0225"
+  },
+  "metadata": {
+    "description": "합성 페르소나로 반응 논점을 만들고, 그것을 실제 고객에게 물어볼 검증 질문으로 바꾸는 Claude Code 스킬 마켓플레이스"
+  },
+  "plugins": [
+    {
+      "name": "virtual-customer-feedback",
+      "source": "./plugins/virtual-customer-feedback",
+      "description": "가상 고객의 답을 지어내지 않고, 실제 고객에게 물어볼 검증 질문지를 만든다. 한국 합성 페르소나 40건 포함."
+    }
+  ]
+}
