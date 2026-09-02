@@ -125,15 +125,15 @@
 
 | 설치 방식 | `<스킬 폴더>` 위치 |
 |---|---|
-| 플러그인 (마켓플레이스) | Claude Code가 관리하는 플러그인 캐시 안의 `virtual-customer-feedback/skills/virtual-customer-feedback/` |
+| 플러그인 (마켓플레이스) | `~/.claude/plugins/cache/<마켓플레이스>/<플러그인>/<버전>/skills/virtual-customer-feedback/`<br>실측 예: `~/.claude/plugins/cache/virtual-customer-feedback/virtual-customer-feedback/1.0.0/skills/virtual-customer-feedback/` |
 | 수동 복사 | `~/.claude/skills/virtual-customer-feedback/` |
 
-> **[한계] 플러그인 캐시의 정확한 경로를 알려주는 공식 명령이 문서화돼 있지 않다.** 그래서 플러그인 설치본의 해시 대조는 **경로를 직접 찾아야** 가능하다(아래 탐색 명령). 경로를 못 찾으면 이 대조는 **`미실시`로 적는다** — 통과로 세지 않는다.
+> **[사실] 위 경로는 2026-09-01 Windows / Claude Code 2.1.x에서 실측했다.** 다만 경로 규칙을 보장하는 공식 문서를 찾지 못했으므로 버전에 따라 달라질 수 있다 — 그때는 아래 탐색 명령으로 찾는다. 경로를 못 찾으면 이 대조는 **`미실시`로 적는다**(통과로 세지 않는다).
 >
 > **Windows**: `Get-ChildItem $(if($env:CLAUDE_CODE_PLUGIN_CACHE_DIR){$env:CLAUDE_CODE_PLUGIN_CACHE_DIR}else{"$env:USERPROFILE\.claude"}) -Recurse -Filter persona-index.md -ErrorAction SilentlyContinue | Select-Object FullName,LastWriteTime`
 > **macOS / Linux**: `find "${CLAUDE_CODE_PLUGIN_CACHE_DIR:-$HOME/.claude}" -name persona-index.md -exec ls -l {} \; 2>/dev/null`
 >
-> 캐시 위치는 `CLAUDE_CODE_PLUGIN_CACHE_DIR`로 바뀔 수 있어 위 명령이 그 값을 먼저 본다. **여러 건이 나오면 구버전 캐시가 함께 잡힌 것이다** — 활성 버전을 가리는 공식 수단이 없으므로, 그때는 각 후보의 해시를 모두 계산해 **하나라도 §6-3과 일치하면 통과, 전부 불일치면 실패**로 판정한다.
+> 캐시 위치는 `CLAUDE_CODE_PLUGIN_CACHE_DIR`로 바뀔 수 있어 위 명령이 그 값을 먼저 본다. **여러 건이 나오면** 마켓플레이스 원본·구버전 캐시·활성 캐시가 함께 잡힌 것이다. `claude plugin list`가 보여주는 **버전 번호와 같은 경로 조각(`/<버전>/`)을 가진 것이 활성 설치본**이며, **그 하나만** §6-3과 대조한다. 활성본을 특정하지 못하면 **`미실시`로 적는다** — 다른 후보가 일치한다는 이유로 통과시키지 않는다.
 
 > 플러그인으로 설치하면 스킬 파일 11개 외에 **플러그인 매니페스트(`.claude-plugin/plugin.json`)·`LICENSE`·`NOTICE.md`도 함께** 복사된다(플러그인 디렉터리 전체가 복사되므로). 스킬이 읽는 것은 11개뿐이다.
 
